@@ -11,8 +11,10 @@ In this jupyter notebook we are going to take the credit card fraud detection as
 
 What Are Anomalies? 
 
-In data mining, anomaly detection (also outlier detection) is the identification of rare items, events or observations which raise suspicions by differing significantly from the majority of the data. 
+In data mining, anomaly detection (also outlier detection) is the identification of rare items, events or observations which raise suspicions by differing significantly from the majority of the data.
+
 Anomalies can be broadly categorized as:
+
   - Point anomalies: A single instance of data is anomalous if it's too far off from the rest. 
     - Business use case: Detecting credit card fraud based on "amount spent."
   - Contextual anomalies: The abnormality is context specific. This type of anomaly is common in time-series data. 
@@ -39,7 +41,7 @@ The definition of abnormal or normal may frequently change, as malicious adversa
 
 The pattern is based on seasonality. This involves more sophisticated methods, such as decomposing the data into multiple trends in order to identify the change in seasonality.
 
-    Machine Learning-Based Approaches Below is a brief overview of popular machine learning-based techniques for anomaly detection.
+Machine Learning-Based Approaches Below is a brief overview of popular machine learning-based techniques for anomaly detection.
 
 ##### a.Density-Based Anomaly Detection:
 
@@ -63,11 +65,17 @@ The pattern is based on seasonality. This involves more sophisticated methods, s
 
 ##### c.Support Vector Machine-Based Anomaly Detection: 
 
-A support vector machine is another effective technique for detecting anomalies. A SVM is typically associated with supervised learning, but there are extensions (OneClassCVM, for instance) that can be used to identify anomalies as an unsupervised problems (in which training data are not labeled). The algorithm learns a soft boundary in order to cluster the normal data instances using the training set, and then, using the testing instance, it tunes itself to identify the abnormalities that fall outside the learned region. Depending on the use case, the output of an anomaly detector could be numeric scalar values for filtering on domain-specific thresholds or textual labels (such as binary/multi labels). In this jupyter notebook we are going to take the credit card fraud detection as the case study for understanding this concept in detail using the following Anomaly Detection Techniques namely
+A support vector machine is another effective technique for detecting anomalies. A SVM is typically associated with supervised learning, but there are extensions (OneClassCVM, for instance) that can be used to identify anomalies as an unsupervised problems (in which training data are not labeled). The algorithm learns a soft boundary in order to cluster the normal data instances using the training set, and then, using the testing instance, it tunes itself to identify the abnormalities that fall outside the learned region. Depending on the use case, the output of an anomaly detector could be numeric scalar values for filtering on domain-specific thresholds or textual labels (such as binary/multi labels). 
 
-##### Isolation Forest Anomaly Detection Algorithm:
+In this jupyter notebook we are going to take the credit card fraud detection as the case study for understanding this concept in detail using the following Anomaly Detection Techniques namely
 
-Density-Based Anomaly Detection (Local Outlier Factor)Algorithm Support Vector Machine Anomaly Detection Algorithm Credit Card Fraud Detection Problem Statement: The Credit Card Fraud Detection Problem includes modeling past credit card transactions with the knowledge of the ones that turned out to be fraud. This model is then used to identify whether a new transaction is fraudulent or not. Our aim here is to detect 100% of the fraudulent transactions while minimizing the incorrect fraud classifications.
+    1.Isolation Forest Anomaly Detection Algorithm
+    2.Density-Based Anomaly Detection (Local Outlier Factor)Algorithm 
+    3.Support Vector Machine Anomaly Detection Algorithm 
+
+### Problem Statement: 
+
+The Credit Card Fraud Detection Problem includes modeling past credit card transactions with the knowledge of the ones that turned out to be fraud. This model is then used to identify whether a new transaction is fraudulent or not. Our aim here is to detect 100% of the fraudulent transactions while minimizing the incorrect fraud classifications.
 
 ### Dataset :
 
