@@ -1,22 +1,19 @@
 # Credit Card Fraud Detection
-## Anonymized credit card transactions labeled as fraudulent or genuine
 
-**Author** : SHAILESH DHAMA
+This repository contains code for detecting credit card fraud using anomaly detection techniques. Anomaly detection is a technique used to identify unusual patterns that do not conform to expected behavior, called outliers. It has many applications in business, from intrusion detection to system health monitoring, and from fraud detection in credit card transactions to fault detection in operating environments.
 
-### THEORETICAL DESCRIPTION OF PROJECT :
+## Theoretical Description of Project
 
-Anomaly detection is a technique used to identify unusual patterns that do not conform to expected behavior, called outliers. It has many applications in business, from intrusion detection (identifying strange patterns in network traffic that could signal a hack) to system health monitoring (spotting a malignant tumor in an MRI scan), and from fraud detection in credit card transactions to fault detection in operating environments.
+In data mining, anomaly detection (also outlier detection) is the identification of rare items, events or observations which raise suspicions by differing significantly from the majority of the data. Anomalies can be broadly categorized as point anomalies, contextual anomalies, or collective anomalies. 
 
-In data mining, anomaly detection (also outlier detection) is the identification of rare items, events or observations which raise suspicions by differing significantly from the majority of the data.
+### Point anomalies
+A single instance of data is anomalous if it's too far off from the rest. Business use case: Detecting credit card fraud based on "amount spent."
 
-Anomalies can be broadly categorized as:
+### Contextual anomalies
+The abnormality is context-specific. This type of anomaly is common in time-series data. Business use case: Spending $100 on food every day during the holiday season is normal, but may be odd otherwise.
 
-  - Point anomalies: A single instance of data is anomalous if it's too far off from the rest. 
-  - Business use case: Detecting credit card fraud based on "amount spent."
-  - Contextual anomalies: The abnormality is context specific. This type of anomaly is common in time-series data. 
-  - Business use case: Spending $100 on food every day during the holiday season is normal, but may be odd otherwise.
-  - Collective anomalies: A set of data instances collectively helps in detecting anomalies. 
-  - Business use case: Someone is trying to copy data form a remote machine to a local host unexpectedly, an anomaly that would be flagged as a potential cyber attack.
+### Collective anomalies
+A set of data instances collectively helps in detecting anomalies. Business use case: Someone is trying to copy data from a remote machine to a local host unexpectedly, an anomaly that would be flagged as a potential cyber attack.
 
 Anomaly detection is similar to but not entirely the same as noise removal and novelty detection.
 
@@ -24,29 +21,30 @@ Novelty detection is concerned with identifying an unobserved pattern in new obs
 
 Noise removal (NR) is the process of removing noise from an otherwise meaningful signal.
 
-#### 1.Anomaly Detection Techniques
+### Anomaly Detection Techniques
 
-Simple Statistical Methods The simplest approach to identifying irregularities in data is to flag the data points that deviate from common statistical properties of a distribution, including mean, median, mode, and quantiles. Let's say the definition of an anomalous data point is one that deviates by a certain standard deviation from the mean. Traversing mean over time-series data isn't exactly trivial, as it's not static. You would need a rolling window to compute the average across the data points. Technically, this is called a rolling average or a moving average, and it's intended to smooth short-term fluctuations and highlight long-term ones. Mathematically, an n-period simple moving average can also be defined as a "low pass filter."
+#### Simple Statistical Methods
+The simplest approach to identifying irregularities in data is to flag the data points that deviate from common statistical properties of a distribution, including mean, median, mode, and quantiles. Let's say the definition of an anomalous data point is one that deviates by a certain standard deviation from the mean. Traversing mean over time-series data isn't exactly trivial, as it's not static. You would need a rolling window to compute the average across the data points. Technically, this is called a rolling average or a moving average, and it's intended to smooth short-term fluctuations and highlight long-term ones. Mathematically, an n-period simple moving average can also be defined as a "low pass filter."
 
-Challenges with Simple Statistical Methods The low pass filter allows you to identify anomalies in simple use cases, but there are certain situations where this technique won't work. Here are a few:
+Challenges with Simple Statistical Methods 
+The low pass filter allows you to identify anomalies in simple use cases, but there are certain situations where this technique won't work. Here are a few:
 
-The data contains noise which might be similar to abnormal behavior, because the boundary between normal and abnormal behavior is often not precise.
+- The data contains noise which might be similar to abnormal behavior, because the boundary between normal and abnormal behavior is often not precise.
+- The definition of abnormal or normal may frequently change, as malicious adversaries constantly adapt themselves. Therefore, the threshold based on moving average may not always apply.
+- The pattern is based on seasonality. This involves more sophisticated methods, such as decomposing the data into multiple trends to identify the change in seasonality.
 
-The definition of abnormal or normal may frequently change, as malicious adversaries constantly adapt themselves. Therefore, the threshold based on moving average may not always apply.
+#### Machine Learning-Based Approaches 
 
-The pattern is based on seasonality. This involves more sophisticated methods, such as decomposing the data into multiple trends in order to identify the change in seasonality.
+Below is a brief overview of popular machine learning-based techniques for anomaly detection.
 
-Machine Learning-Based Approaches Below is a brief overview of popular machine learning-based techniques for anomaly detection.
+##### Density-Based Anomaly Detection:
+Density-based anomaly detection is based on the k-nearest neighbors algorithm.
 
-##### a.Density-Based Anomaly Detection:
+Assumption: Normal data points occur around a dense neighborhood and abnormalities are far away.
 
-  Density-based anomaly detection is based on the k-nearest neighbors algorithm.
+The nearest set of data points are evaluated using a score, which could be Euclidean distance or a similar measure dependent on the type of the data (categorical or numerical). They could be broadly classified into two algorithms:
 
-  Assumption: Normal data points occur around a dense neighborhood and abnormalities are far away.
-
-  The nearest set of data points are evaluated using a score, which could be Eucledian distance or a similar measure dependent on the type of the data (categorical or numerical). They could be broadly classified into two algorithms:
-
-  K-nearest neighbor: k-NN is a simple, non-parametric lazy learning technique used to classify data based on similarities in distance metrics such as Eucledian, Manhattan, Minkowski, or Hamming distance.
+- K-nearest neighbor: k-NN is a simple, non-parametric lazy learning technique used to classify data based on similarities in distance metrics such as Euclidean, Manhattan, Minkowski, or Hamming distance
 
   Relative density of data: This is better known as local outlier factor (LOF). This concept is based on a distance metric called reachability distance.
 
